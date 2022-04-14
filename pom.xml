@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.kafkademo</groupId>
 	<artifactId>kafka_publisher</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<name>kafka_publisher</name>
 	<description>Demo project for Kafka Publisher</description>
 	<properties>
