@@ -16,13 +16,28 @@ public class KafkaPublisherApplication {
 	private KafkaTemplate<String, Object> template;
 
 	private String topicName = "kafkaspringboot";
-
+	
+	/*For string, we doesn't have to configure anything,
+	 *  all the things are already configured
+	 *  but in case of object we have to configure multiple things
+*/
+	
 	@GetMapping("/publish/{name}")
 	public String publishMessage(@PathVariable String name) {
 
 		template.send(topicName, "Hello World, this is demo project for kafka on spring boot, my name is " + name);
 
 		return "Data Published";
+	}
+	
+	
+	@GetMapping("/publishjson")
+	public String publishMessage() {
+		
+		User user = new User(48, "Ganesh Parmar", new String[] {"Dewas","Adarsh Nagar","House no : 114/A"});
+		template.send(topicName, user);
+
+		return "Json Data Published";
 	}
 
 	public static void main(String[] args) {
